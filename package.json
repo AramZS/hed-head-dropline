@@ -1,0 +1,12 @@
+{
+  "name": "hed-head-dropline",
+  "version": "1.0.0",
+  "description": "Spawn headlines with wild abandon",
+  "main": "src/index.js",
+  "author": "Aram Zucker-Scharff <aramzs@hacktext.com>",
+  "license": "MIT",
+  "dependencies": {
+    "compromise": "^11.5.3",
+    "synonyms": "^1.0.1"
+  }
+}
