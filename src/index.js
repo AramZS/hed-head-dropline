@@ -1,7 +1,7 @@
 var syn = require("./syn");
 var sentence = require('./sentence');
 
-module.exports.fromOneMany = (source) => {
+const fromOneMany = (source) => {
     const set = [];
     sentence.init(source);
     sentence.normalizeIt();
@@ -16,22 +16,26 @@ module.exports.fromOneMany = (source) => {
     var verbSet = {};
     sentence.findVerbs().forEach((element) => {
         // console.log('Found Verb:', element);
-        const verbs = syn.find(element).v;
-        if (verbs == [] || verbs === undefined) {
-            return;
-        }
-        verbs.shift();
-        verbSet[element] = verbs;
+        try {
+            const verbs = syn.find(element).v;
+            if (verbs == [] || verbs === undefined) {
+                return;
+            }
+            verbs.shift();
+            verbSet[element] = verbs;
+        } catch (error) {} finally {}
     });
     var adjSet = {};
     sentence.findAdjectives().forEach((element) => {
         // console.log('Found Adj:', element);
-        const adjs = syn.find(element).s;
-        if (adjs == [] || adjs === undefined) {
-            return;
-        }
-        adjs.shift();
-        adjSet[element] = adjs;
+        try {
+            const adjs = syn.find(element).s;
+            if (adjs == [] || adjs === undefined) {
+                return;
+            }
+            adjs.shift();
+            adjSet[element] = adjs;
+        } catch (error) {} finally {}
     });
     var both = [];
     for (const prop in verbSet) {
@@ -62,3 +66,7 @@ module.exports.fromOneMany = (source) => {
     }
     return set;
 };
+
+module.exports.fromOneMany = fromOneMany;
+
+console.log(fromOneMany("Sudan, the Last Male Northern White Rhino, Dies in Kenya."));
