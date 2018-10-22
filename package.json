@@ -1,12 +1,33 @@
 {
-  "name": "hed-head-dropline",
-  "version": "1.0.0",
-  "description": "Spawn headlines with wild abandon",
-  "main": "src/index.js",
-  "author": "Aram Zucker-Scharff <aramzs@hacktext.com>",
-  "license": "MIT",
+  "name": "glitch-twitterbot",
+  "version": "0.0.1",
+  "description": "Beep beep tweet!",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "compromise": "^11.5.3",
-    "synonyms": "^1.0.1"
-  }
+    "twit": "^2.1.0",
+    "express": "^4.14.0",
+    "compromise": "^11.12.1",
+    "synonyms": "^1.0.1",
+    "rss-parser": "^3.5.2",
+    "feed-reader": "^1.1.16",
+    "datamuse": "^1.0.5"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": ""
+  },
+  "keywords": [
+    "node",
+    "glitch",
+    "gomix",
+    "hyperdev",
+    "twitter",
+    "twitterbot",
+    "bot"
+  ]
 }
